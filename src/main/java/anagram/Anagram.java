@@ -16,10 +16,8 @@ public class Anagram {
 	}
 
 	private static boolean isAnagram(String str1, String str2) {
-		boolean isAnagram = true;
 		if (str1.length() != str2.length()) {
-			isAnagram = false;
-			return isAnagram;
+			return false;
 		}
 
 		str1 = sortString(str1);
@@ -32,12 +30,11 @@ public class Anagram {
 		
 		for (int i = 0; i < ch1.length; i++) {
 			if(ch1[i]!=ch2[i]) {
-				isAnagram = false;
-				return isAnagram;
+				return false;
 			}
 		}
 
-		return isAnagram;
+		return true;
 	}
 
 	private static String sortString(String string) {

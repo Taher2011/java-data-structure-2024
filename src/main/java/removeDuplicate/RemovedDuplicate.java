@@ -11,7 +11,7 @@ public class RemovedDuplicate {
 
 	// optimal
 	private static void removeDuplicateFromString1(String str) {
-
+		System.out.println("str before removed duplicate : " + str);
 		boolean[] b = new boolean[256];
 
 		char[] ch = str.toCharArray();
@@ -24,6 +24,7 @@ public class RemovedDuplicate {
 				removeDuplicate.append(ch[i]);
 			}
 		}
+		System.out.println("str after removed duplicate  : " + removeDuplicate);
 		System.out.println();
 	}
 

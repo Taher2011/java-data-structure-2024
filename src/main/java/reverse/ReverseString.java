@@ -1,4 +1,4 @@
-package sort;
+package reverse;
 
 public class ReverseString {
 

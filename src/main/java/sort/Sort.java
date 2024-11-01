@@ -24,8 +24,8 @@ public class Sort {
 	private static void sortString(String string) {
 		System.out.println("unsorted string : " + string);
 		char[] ch = string.toCharArray();
-		char temp;
 		for (int i = 0; i < ch.length; i++) {
+			char temp;
 			for (int j = i + 1; j < ch.length; j++) {
 				if (ch[i] > ch[j]) {
 					temp = ch[j];
@@ -39,14 +39,14 @@ public class Sort {
 	}
 
 	private static void sortStringArrayAsc(String[] ch) {
-		System.out.println("unsorted string array  : " + Arrays.toString(ch));
-		String temp = "";
+		System.out.println("unsorted string array   : " + Arrays.toString(ch));
 		for (int i = 0; i < ch.length; i++) {
+			String temp;
 			for (int j = i + 1; j < ch.length; j++) {
-				if (ch[i].compareTo(ch[j]) >= 1) {
-					temp = ch[i];
-					ch[i] = ch[j];
-					ch[j] = temp;
+				if (ch[i].compareTo(ch[j]) > 1) {
+					temp = ch[j];
+					ch[j] = ch[i];
+					ch[i] = temp;
 				}
 			}
 		}
@@ -55,50 +55,50 @@ public class Sort {
 	}
 
 	private static void sortStringArrayDsc(String[] ch) {
-		System.out.println("unsorted string array  : " + Arrays.toString(ch));
-		String temp = "";
+		System.out.println("unsorted string array   : " + Arrays.toString(ch));
 		for (int i = 0; i < ch.length; i++) {
+			String temp;
 			for (int j = i + 1; j < ch.length; j++) {
-				if (ch[i].compareTo(ch[j]) <= -1) {
-					temp = ch[i];
-					ch[i] = ch[j];
-					ch[j] = temp;
+				if (ch[i].compareTo(ch[j]) < 1) {
+					temp = ch[j];
+					ch[j] = ch[i];
+					ch[i] = temp;
 				}
 			}
 		}
-		System.out.println("sorted string array desc : " + Arrays.toString(ch));
+		System.out.println("sorted string array dsc : " + Arrays.toString(ch));
 		System.out.println();
 	}
 
 	private static void sortIntegerArrayAsc(int[] ch) {
-		System.out.println("unsorted integer array : " + Arrays.toString(ch));
-		int temp;
+		System.out.println("unsorted int array   : " + Arrays.toString(ch));
 		for (int i = 0; i < ch.length; i++) {
+			int temp;
 			for (int j = i + 1; j < ch.length; j++) {
 				if (ch[i] > ch[j]) {
-					temp = ch[i];
-					ch[i] = ch[j];
-					ch[j] = temp;
+					temp = ch[j];
+					ch[j] = ch[i];
+					ch[i] = temp;
 				}
 			}
 		}
-		System.out.println("sorted integer array asc : " + Arrays.toString(ch));
+		System.out.println("sorted int array asc : " + Arrays.toString(ch));
 		System.out.println();
 	}
 
 	private static void sortIntegerArrayDsc(int[] ch) {
-		System.out.println("unsorted integer array : " + Arrays.toString(ch));
-		int temp;
+		System.out.println("unsorted int array   : " + Arrays.toString(ch));
 		for (int i = 0; i < ch.length; i++) {
+			int temp;
 			for (int j = i + 1; j < ch.length; j++) {
 				if (ch[i] < ch[j]) {
-					temp = ch[i];
-					ch[i] = ch[j];
-					ch[j] = temp;
+					temp = ch[j];
+					ch[j] = ch[i];
+					ch[i] = temp;
 				}
 			}
 		}
-		System.out.println("sorted integer array dsc : " + Arrays.toString(ch));
+		System.out.println("sorted int array dsc : " + Arrays.toString(ch));
 		System.out.println();
 	}
 }

@@ -6,7 +6,7 @@ public class Palindrome {
 
 		String str = "Malayalam";
 
-		if (isPalindrome(str.toLowerCase())) {
+		if (isPalindrome(str)) {
 			System.out.println(str + " is palindrome");
 		} else {
 			System.out.println(str + " is not palindrome");
@@ -15,7 +15,7 @@ public class Palindrome {
 	}
 
 	private static boolean isPalindrome(String str) {
-		char[] ch = str.toCharArray();
+		char[] ch = str.toLowerCase().toCharArray();
 		for (int i = 0, j = ch.length - 1; i < ch.length; i++, j--) {
 			if (ch[i] != ch[j]) {
 				return false;

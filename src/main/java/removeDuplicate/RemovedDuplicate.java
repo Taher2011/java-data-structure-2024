@@ -11,8 +11,10 @@ public class RemovedDuplicate {
 		String str = "malayalam";
 		removeDuplicateFromString1(str); // optimal
 		removeDuplicateFromString(str);
-		removeDuplicateFromStringArray(str.toCharArray());
-		removeDuplicateFromStringArray1(str.toCharArray()); // optimal
+
+		String[] letters = str.split("");
+		removeDuplicateFromStringArray(letters);
+		removeDuplicateFromStringArray1(letters); // optimal
 
 		int[] a = { 41, 1, 22, 9, 1, 9, 8, 0, 0, 41 };
 		removeDuplicateFromIntArray(a);
@@ -59,23 +61,23 @@ public class RemovedDuplicate {
 		System.out.println();
 	}
 
-	private static void removeDuplicateFromStringArray(char[] ch) {
-		System.out.println("original array : " + Arrays.toString(ch));
+	private static void removeDuplicateFromStringArray(String[] letters) {
+		System.out.println("original str array : " + Arrays.toString(letters));
 		StringBuilder removedDuplicate = new StringBuilder();
-		for (int i = 0; i < ch.length; i++) {
+		for (int i = 0; i < letters.length; i++) {
 			int counter = 0;
-			if (removedDuplicate.toString().contains(ch[i] + "")) {
+			if (removedDuplicate.toString().contains(letters[i])) {
 				continue;
 			}
-			for (int j = i + 1; j < ch.length; j++) {
-				if (ch[i] == ch[j]) {
-					removedDuplicate.append(ch[i]);
+			for (int j = i + 1; j < letters.length; j++) {
+				if (letters[i].equals(letters[j])) {
+					removedDuplicate.append(letters[i]);
 					counter++;
 					break;
 				}
 			}
 			if (counter == 0) {
-				removedDuplicate.append(ch[i]);
+				removedDuplicate.append(letters[i]);
 			}
 		}
 		System.out.println(
@@ -84,14 +86,14 @@ public class RemovedDuplicate {
 	}
 
 	// optimal
-	private static void removeDuplicateFromStringArray1(char[] ch) {
-		System.out.println("original array : " + Arrays.toString(ch));
+	private static void removeDuplicateFromStringArray1(String[] letters) {
+		System.out.println("original str array : " + Arrays.toString(letters));
 		StringBuilder removedDuplicate = new StringBuilder();
 		boolean[] b = new boolean[256];
-		for (int i = 0; i < ch.length; i++) {
-			if (!b[ch[i]]) {
-				b[ch[i]] = true;
-				removedDuplicate.append(ch[i]);
+		for (int i = 0; i < letters.length; i++) {
+			if (!b[letters[i].charAt(0)]) {
+				b[letters[i].charAt(0)] = true;
+				removedDuplicate.append(letters[i].charAt(0));
 			}
 		}
 		System.out.println(
@@ -101,7 +103,7 @@ public class RemovedDuplicate {
 
 	private static void removeDuplicateFromIntArray(int[] a) {
 		int[] temp = new int[a.length];
-		System.out.println("original array : " + Arrays.toString(a));
+		System.out.println("original int array : " + Arrays.toString(a));
 		int index = 0;
 		boolean[] b = new boolean[100];
 		for (int i = 0; i < a.length; i++) {
@@ -116,7 +118,7 @@ public class RemovedDuplicate {
 	}
 
 	private static void removeDuplicateFromIntArray1(int[] a) {
-		System.out.println("original array : " + Arrays.toString(a));
+		System.out.println("original int array : " + Arrays.toString(a));
 		Set<Integer> set = new LinkedHashSet<>();
 		for (int i : a) {
 			set.add(i);
@@ -126,7 +128,7 @@ public class RemovedDuplicate {
 	}
 
 	private static void removeDuplicateFromIntArray2(int[] a) {
-		System.out.println("original array : " + Arrays.toString(a));
+		System.out.println("original int array : " + Arrays.toString(a));
 		Integer[] temp = new Integer[a.length];
 		int index = a.length - 1;
 		int var = 0;

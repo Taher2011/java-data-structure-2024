@@ -1,6 +1,8 @@
 package removeDuplicate;
 
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class RemovedDuplicate {
 
@@ -12,6 +14,10 @@ public class RemovedDuplicate {
 		removeDuplicateFromStringArray(str.toCharArray());
 		removeDuplicateFromStringArray1(str.toCharArray()); // optimal
 
+		int[] a = { 41, 1, 22, 9, 1, 9, 8, 0, 0, 41 };
+		removeDuplicateFromIntArray(a);
+		removeDuplicateFromIntArray1(a);
+		removeDuplicateFromIntArray2(a);
 	}
 
 	// optimal
@@ -90,6 +96,58 @@ public class RemovedDuplicate {
 		}
 		System.out.println(
 				"array after removed duplicate : " + Arrays.toString(removedDuplicate.toString().toCharArray()));
+		System.out.println();
 	}
 
+	private static void removeDuplicateFromIntArray(int[] a) {
+		int[] temp = new int[a.length];
+		System.out.println("original array : " + Arrays.toString(a));
+		int index = 0;
+		boolean[] b = new boolean[100];
+		for (int i = 0; i < a.length; i++) {
+			if (!b[a[i]]) {
+				b[a[i]] = true;
+				temp[index++] = a[i];
+			}
+		}
+		int[] a1 = Arrays.copyOf(temp, index);
+		System.out.println("array after removed duplicate : " + Arrays.toString(a1));
+		System.out.println();
+	}
+
+	private static void removeDuplicateFromIntArray1(int[] a) {
+		System.out.println("original array : " + Arrays.toString(a));
+		Set<Integer> set = new LinkedHashSet<>();
+		for (int i : a) {
+			set.add(i);
+		}
+		System.out.println("array after removed duplicate : " + Arrays.toString(set.toArray()));
+		System.out.println();
+	}
+
+	private static void removeDuplicateFromIntArray2(int[] a) {
+		System.out.println("original array : " + Arrays.toString(a));
+		Integer[] temp = new Integer[a.length];
+		int index = a.length - 1;
+		int var = 0;
+		for (int i = a.length - 1; i >= 0; i--) {
+			int counter = 0;
+			for (int j = i - 1; j >= 0; j--) {
+				if (a[i] == a[j]) {
+					counter++;
+					break;
+				}
+			}
+			if (counter == 0) {
+				var++;
+				temp[index--] = a[i];
+			}
+		}
+		int[] na = new int[var];
+		for (int i = 0; i < na.length; i++) {
+			na[i] = temp[index++ + 1];
+		}
+		System.out.println("array after removed duplicate : " + Arrays.toString(na));
+		System.out.println();
+	}
 }
